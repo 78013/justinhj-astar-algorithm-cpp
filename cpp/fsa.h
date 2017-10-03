@@ -68,12 +68,12 @@ public:
     };
 
 public: // methods
-    FixedSizeAllocator(unsigned int MaxElements = FSA_DEFAULT_SIZE) :
+    explicit FixedSizeAllocator(unsigned int MaxElements = FSA_DEFAULT_SIZE) :
             m_pFirstUsed(NULL),
             m_MaxElements(MaxElements) {
         // Allocate enough memory for the maximum number of elements
 
-        char *pMem = new char[m_MaxElements * sizeof(FSA_ELEMENT)];
+        auto *pMem = new char[m_MaxElements * sizeof(FSA_ELEMENT)];
 
         m_pMemory = (FSA_ELEMENT *) pMem;
 
@@ -147,7 +147,7 @@ public: // methods
     // (To add the debug check you'd need to make sure the pointer is in
     // the m_pMemory area and is pointing at the start of a node)
     void free(USER_TYPE *user_data) {
-        FSA_ELEMENT *pNode = reinterpret_cast<FSA_ELEMENT *>(user_data);
+        auto *pNode = reinterpret_cast<FSA_ELEMENT *>(user_data);
 
         // manage used list, remove this node from it
         if (pNode->pPrev) {

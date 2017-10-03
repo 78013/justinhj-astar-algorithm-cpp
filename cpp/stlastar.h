@@ -710,7 +710,7 @@ private: // data
 template<class T>
 class AStarState {
 public:
-    virtual ~AStarState() {}
+    virtual ~AStarState() = default;
 
     virtual float
     GoalDistanceEstimate(T &nodeGoal) = 0; // Heuristic function which computes the estimated cost to the goal node

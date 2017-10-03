@@ -538,25 +538,25 @@ bool PuzzleState::GetSuccessors(AStarSearch<PuzzleState> *astarsearch, PuzzleSta
 
     bool ret;
 
-    if (LegalMove(tiles, NewNode.tiles, sp_x, sp_y, sp_x, sp_y - 1) == true) {
+    if (LegalMove(tiles, NewNode.tiles, sp_x, sp_y, sp_x, sp_y - 1)) {
         ret = astarsearch->AddSuccessor(NewNode);
 
         if (!ret) return false;
     }
 
-    if (LegalMove(tiles, NewNode.tiles, sp_x, sp_y, sp_x, sp_y + 1) == true) {
+    if (LegalMove(tiles, NewNode.tiles, sp_x, sp_y, sp_x, sp_y + 1)) {
         ret = astarsearch->AddSuccessor(NewNode);
 
         if (!ret) return false;
     }
 
-    if (LegalMove(tiles, NewNode.tiles, sp_x, sp_y, sp_x - 1, sp_y) == true) {
+    if (LegalMove(tiles, NewNode.tiles, sp_x, sp_y, sp_x - 1, sp_y)) {
         ret = astarsearch->AddSuccessor(NewNode);
 
         if (!ret) return false;
     }
 
-    if (LegalMove(tiles, NewNode.tiles, sp_x, sp_y, sp_x + 1, sp_y) == true) {
+    if (LegalMove(tiles, NewNode.tiles, sp_x, sp_y, sp_x + 1, sp_y)) {
         ret = astarsearch->AddSuccessor(NewNode);
 
         if (!ret) return false;
